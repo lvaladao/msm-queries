@@ -1,17 +1,37 @@
 <h1>List of all directors</h1>
 
 <table border=1>
-<% @list_of_directors.each do |director| %>
-  <tr>
-    <td><%= director.id %></td>
-    <td><img src="<%= director.image %>"></td>
-    <td><%= director.name %></td>
-    <td><%= director.dob %></td>
-    <td>
-      <a href="/directors/<%= director.id %>">
-        Show Details
-      </a>
-    </td>
+   <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Image
+    </th>
+
+    <th>
+      Name
+    </th>
+
+    <th>
+      Dob
+    </th>
+
+    <th>
+    </th>
   </tr>
-<% end %>
+  <% @list_of_directors.each do |director| %>
+    <tr>
+      <td><%= director.id %></td>
+      <td><img src="<%= director.image %>"></td>
+      <td><%= director.name %></td>
+      <td><%= director.dob %></td>
+      <td>
+        <a href="/directors/<%= director.id %>">
+          Show Details
+        </a>
+      </td>
+    </tr>
+  <% end %>
 </table>

@@ -11,8 +11,15 @@ class DirectorsController < ActionController::Base
     render({ :template => "directors_templates/eldest.html.erb"})
   end
 
+  def youngest
+    @youngest = Director.where.not({ :dob =>  nil }).order({ :dob => :desc }).at(0)
+
+    render({ :template => "directors_templates/youngest.html.erb"})
+  end
+
   def details
     @director = Director.where({ :id => params.fetch("id") }).at(0)
+    @filmography = Movie.where({ :director_id => params.fetch("id") })
 
     render({ :template => "directors_templates/details.html.erb"})
   end
